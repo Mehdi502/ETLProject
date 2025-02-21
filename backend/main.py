@@ -1,9 +1,14 @@
+import sys
+import os
+
+
+
 from fastapi import FastAPI
-from Backend.routes import customers  # Import du fichier routes/customers.py
+from backend.routes import customers  # Supprimer "Backend."
 
 app = FastAPI()
 
-# Inclusion des routes API
+# Inclure les routes
 app.include_router(customers.router)
 
 @app.get("/")
