@@ -23,7 +23,10 @@ def get_customers(
     if company:
         query["company"] = company
 
-    customers = list(collection.find(query, {"_id": 0}).skip(skip).limit(limit))
+    customers = list(collection.find(query, {"_id": 0}))  # Récupère tous les clients sauf `_id`
+
+    print("📥 Données récupérées depuis MongoDB :", customers)  # 🛠 Debugging
+
     return customers
 
 
